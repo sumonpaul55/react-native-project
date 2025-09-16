@@ -2,10 +2,11 @@ import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View className="flex-1 justify-center items-center">
-      <Text>Welcome to mobile software</Text>
-      <Text className="text-4xl font-bold text-red-500">Hello everyone</Text>
-      <Text className="text-2xl font-bold px-4 text-indigo-800">this is Sumon Chandra Paul from Mobile Application</Text>
+    <View className="flex-1 py-10 items-center">
+      <Text className="font-semibold text-accesnt text-5xl">Welcome!</Text>
+      <Text>I&apos;m Apk Software for Mobile (android and ios)</Text>
+      <Text className="text-xl mt-5 font-bold text-secondary">Hello everyone</Text>
+      <Text className="mt-10 font-bold px-4 text-indigo-800">this is Sumon Chandra Paul from Mobile Application</Text>
     </View>
   );
 }
