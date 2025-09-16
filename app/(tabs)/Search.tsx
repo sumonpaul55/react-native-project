@@ -3,9 +3,9 @@ import { Text, View } from 'react-native'
 
 const Search = () => {
   return (
-    <View>
-      <Text>Search</Text>
-    </View>
+   <View className='p-4'>
+         <Text className='text-3xl font-semibold'>Search page</Text>
+       </View>
   )
 }
 

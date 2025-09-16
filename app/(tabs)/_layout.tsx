@@ -11,6 +11,27 @@ const _layout = () => {
                     headerShown: false
                 }}
             />
+            <Tabs.Screen
+                name='Search'
+                options={{
+                    title: "Search",
+                    headerShown: false
+                }}
+            />
+            <Tabs.Screen
+                name='Saved'
+                options={{
+                    title: "Saved",
+                    headerShown: false
+                }}
+            />
+            <Tabs.Screen
+                name='Profile'
+                options={{
+                    title: "Profiles",
+                    headerShown: false
+                }}
+            />
         </Tabs>
     )
 }

@@ -3,8 +3,8 @@ import { Text, View } from 'react-native'
 
 const Profile = () => {
   return (
-    <View>
-      <Text>Profile</Text>
+    <View className='p-4'>
+      <Text className='text-3xl font-semibold'>Profiel page</Text>
     </View>
   )
 }

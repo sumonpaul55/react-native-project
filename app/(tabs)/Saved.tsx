@@ -1,10 +1,10 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { Text, View } from 'react-native'
 
 const Saved = () => {
   return (
-    <View>
-      <Text>Saved</Text>
+    <View className='p-4'>
+      <Text className='text-3xl font-semibold'>Saved page</Text>
     </View>
   )
 }
