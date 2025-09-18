@@ -52,7 +52,7 @@ const _layout = () => {
                 }}
             />
             <Tabs.Screen
-                name='Search'
+                name='search'
                 options={{
                     title: "Search",
                     headerShown: false,
@@ -62,7 +62,7 @@ const _layout = () => {
                 }}
             />
             <Tabs.Screen
-                name='Saved'
+                name='saved'
                 options={{
                     title: "Saved",
                     headerShown: false,
@@ -72,7 +72,7 @@ const _layout = () => {
                 }}
             />
             <Tabs.Screen
-                name='Profile'
+                name='profile'
                 options={{
                     title: "Profiles",
                     headerShown: false,
