@@ -9,7 +9,8 @@ import { ActivityIndicator, FlatList, Image, ScrollView, Text, View } from "reac
 
 export default function Index() {
   const router = useRouter()
-  const { data: movies, loading: movieLoding, error: moveisError } = useFetch(() => fetchMovie({ query: "" }))
+  const { data: movies, loading: movieLoding, error: moveisError } = useFetch(() => fetchMovie({ query: "" }));
+
   return (
     <View className="flex-1 items-center justify-center bg-primary">
       <Image source={images.bg} className="w-full h-full absolute z-0" />
@@ -35,7 +36,7 @@ export default function Index() {
                     renderItem={({ item }) => (
                       <MovieCart {...item} />
                     )}
-                    keyExtractor={({ item }) => item?.id.toString()}
+                    // keyExtractor={({ item }) => item?.id.toString()}
                     numColumns={3}
                     columnWrapperStyle={{
                       justifyContent: "flex-start",
@@ -49,7 +50,6 @@ export default function Index() {
                 </>
               </View>
         }
-
       </ScrollView>
     </View>
   );
