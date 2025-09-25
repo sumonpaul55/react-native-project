@@ -40,10 +40,19 @@ const Search = () => {
               <SearchBar onPress={() => router.push("/search")} placeholder="Search For a movie" />
             </View>
             {
-              movieLoding && <ActivityIndicator size="large" color="#fff" className="my-5" /> 
+              movieLoding && <ActivityIndicator size="large" color="#fff" className="my-5" />
             }
             {
-              moveisError && <Text className="text-red-500 text-lg my-5">{moveisError.message}</Text> 
+              moveisError && <Text className="text-red-500 text-lg my-5">{moveisError.message}</Text>
+            }
+            {
+              !movieLoding && !moveisError && 'SEARCH TERM'.trim() && movies?.length > 0 &&
+              (
+                <Text className="text-white font-bold text-lg mb-3">Search For Result {" "}
+                  <Text className='text-accesnt'>SEARCH TERM</Text>
+                </Text>
+
+              )
             }
           </>
         }
