@@ -37,10 +37,10 @@ const Search = () => {
               <Image source={icons.logo} className="size-20 mx-auto mb-5" />
             </View>
             <View className='w-full px-5 mb-5'>
-              <SearchBar onPress={() => router.push("/search")} placeholder="Search For a movie" />
+              <SearchBar onPress={() => router.push("/search")} placeholder="Search For a movies..." />
             </View>
             {
-              movieLoding && <ActivityIndicator size="large" color="#fff" className="my-5" />
+              movieLoding && <ActivityIndicator size="large" color="#fff" className="my-3" />
             }
             {
               moveisError && <Text className="text-red-500 text-lg my-5">{moveisError.message}</Text>
@@ -48,7 +48,7 @@ const Search = () => {
             {
               !movieLoding && !moveisError && 'SEARCH TERM'.trim() && movies?.length > 0 &&
               (
-                <Text className="text-white font-bold text-lg mb-3">Search For Result {" "}
+                <Text className="text-white font-bold text-lg mb-3">Search For Result {""}
                   <Text className='text-accesnt'>SEARCH TERM</Text>
                 </Text>
 
