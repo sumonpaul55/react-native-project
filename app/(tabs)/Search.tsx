@@ -4,13 +4,13 @@ import { icons } from '@/constants/icons'
 import { images } from '@/constants/images'
 import { fetchMovie } from '@/services/api'
 import useFetch from '@/services/useFetch'
-import { useRouter } from 'expo-router'
-import React from 'react'
+import { router } from 'expo-router'
+import React, { useState } from 'react'
 import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native'
 
 const Search = () => {
-  const router = useRouter()
-  const { data: movies, loading: movieLoding, error: moveisError } = useFetch(() => fetchMovie({ query: "" }));
+  const [searchQuery, setSearchQuery] = useState("")
+  const { data: movies, loading: movieLoding, error: moveisError } = useFetch(() => fetchMovie({ query: searchQuery }));
 
   return (
     <View className='flex-1 items-center pt-20 bg-primary'>
@@ -46,9 +46,9 @@ const Search = () => {
               moveisError && <Text className="text-red-500 text-lg my-5">{moveisError.message}</Text>
             }
             {
-              !movieLoding && !moveisError && 'SEARCH TERM'.trim() && movies?.length > 0 &&
+              !movieLoding && !moveisError && "SEARCH TERM" &&
               (
-                <Text className="text-white font-bold text-lg mb-3">Search For Result {""}
+                <Text className="text-white font-bold text-lg mb-3 mx-3">Search For Result {""}
                   <Text className='text-accesnt'>SEARCH TERM</Text>
                 </Text>
 
