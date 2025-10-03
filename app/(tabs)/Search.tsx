@@ -4,12 +4,12 @@ import { icons } from '@/constants/icons'
 import { images } from '@/constants/images'
 import { fetchMovie } from '@/services/api'
 import useFetch from '@/services/useFetch'
-import { router } from 'expo-router'
 import React, { useState } from 'react'
 import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native'
 
 const Search = () => {
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState("");
+
   const { data: movies, loading: movieLoding, error: moveisError } = useFetch(() => fetchMovie({ query: searchQuery }));
 
   return (
@@ -37,7 +37,13 @@ const Search = () => {
               <Image source={icons.logo} className="size-20 mx-auto mb-5" />
             </View>
             <View className='w-full px-5 mb-5'>
-              <SearchBar onPress={() => router.push("/search")} placeholder="Search For a movies..." />
+              <SearchBar
+                placeholder="Search for a movie..."
+                value={searchQuery}
+                onChangeText={(text) => setSearchQuery(text)} // ✅ not value.target.value
+                lightTheme
+                round
+              />
             </View>
             {
               movieLoding && <ActivityIndicator size="large" color="#fff" className="my-3" />
