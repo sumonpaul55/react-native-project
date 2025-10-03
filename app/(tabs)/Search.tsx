@@ -46,7 +46,7 @@ const Search = () => {
               moveisError && <Text className="text-red-500 text-lg my-5">{moveisError.message}</Text>
             }
             {
-              !movieLoding && !moveisError && "SEARCH TERM" &&
+              !movieLoding && !moveisError && searchQuery.trim() && movies?.length > 0 &&
               (
                 <Text className="text-white font-bold text-lg mb-3 mx-3">Search For Result {""}
                   <Text className='text-accesnt'>SEARCH TERM</Text>
