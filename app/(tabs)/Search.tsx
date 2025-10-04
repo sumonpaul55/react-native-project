@@ -4,13 +4,23 @@ import { icons } from '@/constants/icons'
 import { images } from '@/constants/images'
 import { fetchMovie } from '@/services/api'
 import useFetch from '@/services/useFetch'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native'
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { data: movies, loading: movieLoding, error: moveisError } = useFetch(() => fetchMovie({ query: searchQuery }));
+  const { data: movies, loading: movieLoding, error: moveisError, refetch: loadMovie, reset } = useFetch(() => fetchMovie({ query: searchQuery }), false);
+
+  useEffect(() => {
+    const func = async () => {
+      if (searchQuery.trim()) {
+        await loadMovie()
+      }
+    }
+    func();
+  }, [searchQuery, loadMovie])
+
 
   return (
     <View className='flex-1 items-center pt-20 bg-primary'>
@@ -40,9 +50,7 @@ const Search = () => {
               <SearchBar
                 placeholder="Search for a movie..."
                 value={searchQuery}
-                onChangeText={(text) => setSearchQuery(text)} // ✅ not value.target.value
-                lightTheme
-                round
+                onChangeText={(text: string) => setSearchQuery(text)} // ✅ not value.target.value
               />
             </View>
             {
@@ -52,10 +60,10 @@ const Search = () => {
               moveisError && <Text className="text-red-500 text-lg my-5">{moveisError.message}</Text>
             }
             {
-              !movieLoding && !moveisError && searchQuery.trim() && movies?.length > 0 &&
+              !movieLoding && !moveisError && searchQuery.trim() &&
               (
                 <Text className="text-white font-bold text-lg mb-3 mx-3">Search For Result {""}
-                  <Text className='text-accesnt'>SEARCH TERM</Text>
+                  <Text className='text-accesnt'>{searchQuery}</Text>
                 </Text>
 
               )

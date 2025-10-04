@@ -11,8 +11,8 @@ const MovieDetails = () => {
         alignContent: "center",
         alignItems: "center",
         zIndex: 1,
-      }}
-    >  <Text className='text-3xl font-semibold'>Movie Details page</Text>
+      }}>
+      <Text className='text-3xl font-semibold'>Movie Details page</Text>
     </ScrollView>
   )
 }
