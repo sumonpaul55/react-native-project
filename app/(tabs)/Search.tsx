@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import MovieCart from '@/components/MovieCart'
 import SearchBar from '@/components/SearchBar'
 import { icons } from '@/constants/icons'
@@ -16,10 +17,12 @@ const Search = () => {
     const func = async () => {
       if (searchQuery.trim()) {
         await loadMovie()
+      } else {
+        reset()
       }
     }
     func();
-  }, [searchQuery, loadMovie])
+  }, [searchQuery])
 
 
   return (
